@@ -1,0 +1,278 @@
+@import './values';
+@import './themes.scss';
+
+html {
+  margin: 0;
+  padding: 0;
+
+  width: 100%;
+  height: 100%;
+
+  &::-webkit-scrollbar {
+    width: 0 !important;
+  }
+}
+* {
+  box-sizing: border-box;
+  letter-spacing: .8px;
+  font-weight: 400;
+}
+.container {
+  margin: 0 auto;
+  width: 600px;
+}
+.background {
+  width: 100%;
+  height: 100%;
+
+  z-index: -666;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+.app {
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 15px;
+  padding-bottom: 10px;
+
+  border-radius: 15px;
+
+  margin-top: 15px;
+
+  .ThemeSelector {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+
+    display: flex;
+
+    .ThemeSelectorBtn {
+      width: 20px;
+      height: 20px;
+      border-radius: 5px;
+
+      margin-left: 5px;
+
+      cursor: pointer;
+      transition: .3s;
+    }
+    .ThemeSelectorThemeArr {
+    
+      .Theme {
+        animation: ShowThemeArr .3s ease-out forwards;
+        cursor: pointer;
+        user-select: none;
+        padding: 5px;
+        text-transform: uppercase;
+        
+      }
+    }
+    
+  }
+  .NewTodoInput {
+    width: 100%;
+    margin-top: 15px;
+
+    display: flex;
+    justify-content: space-between;
+
+    .textInput {
+      width: 86%;
+      height: 50px;
+      transition: .05s;
+      overflow-y: hidden;
+
+      border: none;
+      border-radius: 25px;
+      padding: 0px 20px;
+      padding-top: 14px;
+      padding-bottom: 10px;
+
+      font-size: 16px;
+      resize: none;
+      
+
+      &:focus {
+        outline: none;
+      }
+    }
+    .submitButton {
+      height: 50px;
+      width: 50px;
+
+      border-radius: 50%;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      font-size: 35px;
+      cursor: pointer;
+
+      user-select: none;
+      
+      svg {
+        transform: translate(-3px, -1px);
+        transition: .3s;
+        
+      }
+
+      &:hover > svg {
+        transform: rotate(-90deg);
+      }
+    }
+  }
+  .Filter {
+    width: 100%;
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .FilterInfo {
+      display: flex;
+      justify-content: space-between;
+      user-select: none;
+
+      font-size: 18px;
+
+      border-radius: 150px;
+      padding: 10px 20px;
+      width: 180px;
+
+      
+    }
+
+    .FilterBtn {
+      display: flex;
+        div {
+          border-radius: 150px;
+          padding: 10px 20px;
+          margin: 0 10px;
+  
+          text-transform: uppercase;
+  
+          user-select: none;
+          cursor: pointer;
+        }
+    }
+  }
+  .TodoList {
+    width: 100%;
+    min-height: 50px;
+
+    margin-top: 25px;
+
+    .doneTodo {
+      animation: ShowDoneTodo .5s ease-out 1 forwards !important;
+      .content {
+        text-decoration: line-through;
+      }
+    }
+
+    .NoTodo {
+      width: 100%;
+      margin-top: 10px;
+      text-align: center;
+      user-select: none;
+
+      // animation: ShowNoToDoText .3s ease-out 1 forwards;
+    }
+    .TodoListItem {
+      animation: ShowNewTodo .5s ease-out 1 forwards;
+
+      width: 100%;
+      min-height: 150px;
+      border-radius: 15px;
+      padding: 10px 15px;
+      margin-bottom: 20px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .TodoListItemTop {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .TodoListItemDate {
+          width: 50%;
+          opacity: 0.4;
+          margin-left: 10px;
+        }
+
+        .TodoListItemBtn {
+          display: flex;
+          justify-content: flex-end;
+  
+          div {
+            width: 40px;
+            height: 40px;
+            margin: 0 10px;
+            border-radius: 50%;
+  
+            display: flex;
+            justify-content: center;
+            align-items: center;
+  
+            user-select: none;
+            cursor: pointer;
+          }
+        }
+      }
+      
+      .TodoListItemLine {
+        height: 5px;
+        width: 100%;
+        margin: 15px 0;
+        border-radius: 15px;
+        transition: .1s ease-out;
+      }
+
+      .content {
+        width: 100%;
+        margin-top: 10px;
+        padding: 15px;
+        white-space: pre-wrap;
+
+        border-radius: 15px;
+      }
+    }
+  }
+  .NoTodo {
+    animation: ShowNoToDoText .2s ease-out 1 forwards;
+  }
+}
+
+@keyframes ShowNewTodo {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes ShowDoneTodo {
+  from { opacity: 0; }
+  to { opacity: $opDoneTodo; }
+}
+@keyframes ShowNoToDoText {
+  from { 
+    opacity: 0; 
+    transform: translateY(-10px);
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0px);
+  }
+}
+@keyframes ShowThemeArr {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}

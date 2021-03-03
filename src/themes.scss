@@ -1,0 +1,292 @@
+@import './values';
+
+@mixin boxShadow ($light, $shadow) {
+  box-shadow: 
+    3px 3px 4px 0px $shadow, 
+    -3px -3px 4px 0px $light;
+}
+@mixin boxShadowInset ($light, $shadow) {
+  box-shadow: 
+    inset 3px 3px 4px 0px $shadow, 
+    inset -3px -3px 4px 0px $light !important;
+}
+@mixin textLight ($color) {
+  text-shadow: 0px 0px 1px $color;
+}
+
+//=========================================================
+
+.darkModel {
+
+  font-family: 'Roboto', sans-serif;
+  color: $darkModel-White;
+
+  @include boxShadow (
+    $darkModel-LightShadow, 
+    $darkModel-DarkShadow 
+  );
+
+  .background {
+    background: $darkModel-BG;
+  }
+  
+  .activeButton {
+    @include boxShadowInset (
+        $darkModel-LightShadow, 
+        $darkModel-DarkShadow 
+      );
+    @include textLight ($darkModel-Green);
+    color: $darkModel-Green;
+  }
+
+  .ThemeSelector {
+    .ThemeSelectorBtn {
+      background: $darkModel-White;
+
+      &:hover {
+        background: $darkModel-Green;
+      }
+    }
+    .Theme {
+      &:hover {
+        color:$darkModel-Green;
+      }
+    }
+  }
+  
+  .NewTodoInput {
+    .textInput {
+      background: $darkModel-BGLinear;
+
+      color:$darkModel-Green;
+
+      @include boxShadowInset (
+        $darkModel-LightShadow, 
+        $darkModel-DarkShadow 
+      );
+    }
+    .submitButton {
+      background: $darkModel-BG;
+
+      @include boxShadow (
+        $darkModel-LightShadow, 
+        $darkModel-DarkShadow 
+      );
+
+      &:hover > svg {
+        color: $darkModel-Green;
+      }
+    }
+  }
+
+  .Filter {
+    .FilterInfo {
+      @include boxShadowInset (
+        $darkModel-LightShadow, 
+        $darkModel-DarkShadow 
+      );
+      background: $darkModel-BGLinear;
+
+      span {
+        font-weight: 600;
+        color: $darkModel-Green;
+        @include textLight ($darkModel-Green);
+      }
+    }
+    .FilterBtn {
+      div {
+        transition: .5s;
+        background: $darkModel-BG;
+  
+        @include boxShadow (
+          $darkModel-LightShadow, 
+          $darkModel-DarkShadow 
+        );
+      }
+    }
+  }
+
+  .TodoList {
+    .TodoListItem {
+      @include boxShadow (
+        $darkModel-LightShadow, 
+        $darkModel-DarkShadow 
+      );
+
+      .TodoListItemBtn {
+        
+        div {
+          @include boxShadow (
+            $darkModel-LightShadow, 
+            $darkModel-DarkShadow 
+          );
+          transition: .3s;
+        }
+        .delBtn {
+          transition: .2s;
+          &:hover {
+            color: $darkModel-Red;
+            @include textLight ($darkModel-Red)
+          }
+        }
+      }
+      .TodoListItemLine {
+        @include boxShadow (
+          $darkModel-LightShadow, 
+          $darkModel-DarkShadow 
+        );  
+      }
+      .importantLine {
+        background: $darkModel-Green;
+        box-shadow: 0 0 6px $darkModel-Green;
+      }
+      
+      .content {
+        @include boxShadowInset (
+          $darkModel-LightShadow, 
+          $darkModel-DarkShadow 
+        );
+      }
+    }
+  }
+}
+
+.lightModel {
+
+  font-family: 'Roboto', sans-serif;
+  color: $lightModel-Grey;
+
+  @include boxShadow (
+    $lightModel-LightShadow, 
+    $lightModel-DarkShadow 
+  );
+
+  .background {
+    background: $lightModel-BG;
+  }
+
+  .activeButton {
+    @include boxShadowInset (
+        $lightModel-LightShadow, 
+        $lightModel-DarkShadow 
+      );
+    @include textLight ($lightModel-Orange);
+    color: $lightModel-Orange;
+  }
+
+  .ThemeSelector {
+    .ThemeSelectorBtn {
+      background: $lightModel-Grey;
+
+      &:hover {
+        background: $lightModel-Orange;
+      }
+    }
+    .Theme {
+      &:hover {
+        color:$lightModel-Orange;
+      }
+    }
+  }
+  
+  .NewTodoInput {
+    .textInput {
+      background: $lightModel-BGLinear;
+
+      color:$lightModel-Orange;
+
+      @include boxShadowInset (
+        $lightModel-LightShadow, 
+        $lightModel-DarkShadow 
+      );
+    }
+    .submitButton {
+      background: $lightModel-BG;
+
+      @include boxShadow (
+        $lightModel-LightShadow, 
+        $lightModel-DarkShadow 
+      );
+
+      &:hover > svg {
+        color: $lightModel-Orange;
+      }
+    }
+  }
+
+  .Filter {
+    .FilterInfo {
+      @include boxShadowInset (
+        $lightModel-LightShadow, 
+        $lightModel-DarkShadow 
+      );
+      background: $lightModel-BGLinear;
+
+      span {
+        font-weight: 600;
+        color: $lightModel-Orange;
+        @include textLight ($lightModel-Orange);
+      }
+    }
+    .FilterBtn {
+      div {
+        transition: .5s;
+        background: $lightModel-BG;
+  
+        @include boxShadow (
+          $lightModel-LightShadow, 
+          $lightModel-DarkShadow 
+        );
+      }
+    }
+  }
+
+  .TodoList {
+    .TodoListItem {
+      animation: ShowNewTodo .5s ease-out 1 forwards;
+
+      @include boxShadow (
+        $lightModel-LightShadow, 
+        $lightModel-DarkShadow 
+      );
+
+      .TodoListItemBtn {
+        
+        div {
+          @include boxShadow (
+            $lightModel-LightShadow, 
+            $lightModel-DarkShadow 
+          );
+          transition: .3s;
+        }
+        .delBtn {
+          transition: .2s;
+          &:hover {
+            color: $lightModel-Red;
+            @include textLight ($lightModel-Red)
+          }
+        }
+      }
+      .TodoListItemLine {
+        @include boxShadow (
+          $lightModel-LightShadow, 
+          $lightModel-DarkShadow 
+        );  
+      }
+      .importantLine {
+        background: $lightModel-Orange;
+        box-shadow: 0 0 6px $lightModel-Orange;
+      }
+      .content {
+        @include boxShadowInset (
+          $lightModel-LightShadow, 
+          $lightModel-DarkShadow 
+        );
+        background: $lightModel-BGLinear;
+        
+      }
+    }
+  }
+}
+
+
