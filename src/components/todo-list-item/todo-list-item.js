@@ -3,7 +3,7 @@ import React, { useState, useContext, useEffect } from 'react'
 import Context from '../../context'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBolt, faCheck, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
+import { faBolt, faCheck, faTrashAlt, faEdit } from '@fortawesome/free-solid-svg-icons'
 
 
 export default function TodoListItem ({id, important, done, label, date}) {
@@ -12,7 +12,8 @@ export default function TodoListItem ({id, important, done, label, date}) {
     {action:'done',      icon: <FontAwesomeIcon icon={faCheck} />,    isActive:false },
     {action:'delete',    icon: <FontAwesomeIcon icon={faTrashAlt} />}
   ])
-  const { updateTodoList } = useContext (Context)
+  const [editMode, setEditMode] = useState (false)
+  const { updateTodoList, updateTodoLabel } = useContext (Context)
 
   const todoAction = (action) => { // срабатывает при клике и передает в глобальный стейт
     const newArr = btnArr.map (el => {
@@ -24,6 +25,7 @@ export default function TodoListItem ({id, important, done, label, date}) {
         }
       } else return el
     })
+    action == 'done' && setEditMode (false)
 
     setBtnArr (newArr)
   }
@@ -60,8 +62,15 @@ export default function TodoListItem ({id, important, done, label, date}) {
     )
   })
 
+  const [newLabelBuffer, setNewLabelBuffer] = useState (label)
+
+  const updateLabel = () => {
+    editMode && updateTodoLabel (id, newLabelBuffer)
+    setEditMode(!editMode)
+  }
+
   return (
-    <div className={`TodoListItem ${done ? 'doneTodo' : null}`} key={id}>
+    <div className={`TodoListItem ${done && 'doneTodo'}`} key={id}>
       <div className='TodoListItemTop'>
         <div className='TodoListItemDate'>
           {date}
@@ -72,10 +81,24 @@ export default function TodoListItem ({id, important, done, label, date}) {
       </div>
       
       <div 
-        className={`TodoListItemLine ${ important ? 'importantLine' : '' }`
+        className={`TodoListItemLine ${ important && 'importantLine'}`
       }></div>
       <div className='content'>
-        {label}
+        {
+          !done &&
+            <div className={`editMode ${editMode && 'editModeActive'}`}>
+              <FontAwesomeIcon 
+                icon={faEdit} 
+                onClick={()=> updateLabel()}/> 
+            </div>
+        }
+        <div
+          contentEditable={editMode}
+          suppressContentEditableWarning="true"
+          onInput={e => setNewLabelBuffer (e.target.innerText)}>
+          {label}
+        </div>
+        
       </div> 
     </div>
   )

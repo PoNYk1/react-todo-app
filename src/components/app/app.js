@@ -23,7 +23,8 @@ export default function App () {
   }, [todoArr])
 
   const updateTodoList = (id, action) => { // Удаление и пометка для выполненых и важных задач
-    if ( action == 'delete') {
+    if ( action == 'delete') 
+    {
       const newArr = todoArr.filter(el => el.id != id)
       setTodoArr(newArr)
     } else {
@@ -47,6 +48,19 @@ export default function App () {
       setTodoArr(newArr)
     }
     
+  }
+
+  const updateTodoLabel = (id, newLabel) => {
+    const newArr = todoArr.map (el => {
+      if (id == el.id) {
+        return {
+          ...el,
+          label: newLabel
+        }
+      } else return el
+    })
+
+    setTodoArr (newArr)
   }
 
   const newTodo = (label) => { // Добавляет новое Todo
@@ -74,13 +88,14 @@ export default function App () {
   }).filter(el => el != null)
 
   const globalContext = {
-    newTodo,
-    todoArr,
-    visibleArr,
-    setFilterState,
-    filterState,
-    updateTodoList,
-    setGlobalClass
+    newTodo,          // NewTodoInput
+    todoArr,          // Filter 
+    visibleArr,       // TodoList
+    setFilterState,   // Filter
+    filterState,      // Filter
+    updateTodoList,   // TodoListItem
+    updateTodoLabel,  // TodoListItem
+    setGlobalClass    // ThemeSelector
   }
 
   return (
@@ -94,7 +109,6 @@ export default function App () {
             <TodoList />
           </div>
         </div>
-      
     </Context.Provider>
   )
 }
