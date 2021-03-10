@@ -1,27 +1,25 @@
-import React, { useContext } from 'react'
-import Context from '../../context'
+import React, { useContext } from "react";
+import Context from "../../context";
 
-import TodoListItem from '../todo-list-item'
+import TodoListItem from "../todo-list-item";
 
-export default function TodoList () {
-  const { visibleArr } = useContext(Context)
+export default function TodoList() {
+  const { visibleArr } = useContext(Context);
 
-  const todoListItem = visibleArr.map (el => {
+  const todoListItem = visibleArr.map((el) => {
     return (
-      <TodoListItem 
+      <TodoListItem
         id={el.id}
         key={el.id}
         date={el.date}
         done={el.done}
-        label={el.label} 
+        label={el.label}
         important={el.important}
-         />
-    )
-  })
-  const NoTodo = <div className='NoTodo'> No Todo :) </div>
+      />
+    );
+  });
+  const NoTodo = <div className="NoTodo"> No Todo :) </div>;
   return (
-      <div className='TodoList'>
-        {todoListItem == 0 ? NoTodo : todoListItem}
-      </div>
-  )
+    <div className="TodoList">{todoListItem == 0 ? NoTodo : todoListItem}</div>
+  );
 }

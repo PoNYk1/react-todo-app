@@ -1,5 +1,5 @@
-@import './values';
-@import './themes.scss';
+@import "./values";
+@import "./themes.scss";
 
 html {
   margin: 0;
@@ -14,7 +14,7 @@ html {
 }
 * {
   box-sizing: border-box;
-  letter-spacing: .8px;
+  letter-spacing: 0.8px;
   font-weight: 400;
 }
 .container {
@@ -57,20 +57,17 @@ html {
       margin-left: 5px;
 
       cursor: pointer;
-      transition: .3s;
+      transition: 0.3s;
     }
     .ThemeSelectorThemeArr {
-    
       .Theme {
-        animation: ShowThemeArr .3s ease-out forwards;
+        animation: ShowThemeArr 0.3s ease-out forwards;
         cursor: pointer;
         user-select: none;
         padding: 5px;
         text-transform: uppercase;
-        
       }
     }
-    
   }
   .NewTodoInput {
     width: 100%;
@@ -82,7 +79,7 @@ html {
     .textInput {
       width: 86%;
       height: 50px;
-      transition: .05s;
+      transition: 0.05s;
       overflow-y: hidden;
 
       border: none;
@@ -93,7 +90,6 @@ html {
 
       font-size: 16px;
       resize: none;
-      
 
       &:focus {
         outline: none;
@@ -113,11 +109,10 @@ html {
       cursor: pointer;
 
       user-select: none;
-      
+
       svg {
         transform: translate(-3px, -1px);
-        transition: .3s;
-        
+        transition: 0.3s;
       }
 
       &:hover > svg {
@@ -142,22 +137,20 @@ html {
       border-radius: 150px;
       padding: 10px 20px;
       width: 180px;
-
-      
     }
 
     .FilterBtn {
       display: flex;
-        div {
-          border-radius: 150px;
-          padding: 10px 20px;
-          margin: 0 10px;
-  
-          text-transform: uppercase;
-  
-          user-select: none;
-          cursor: pointer;
-        }
+      div {
+        border-radius: 150px;
+        padding: 10px 20px;
+        margin: 0 10px;
+
+        text-transform: uppercase;
+
+        user-select: none;
+        cursor: pointer;
+      }
     }
   }
   .TodoList {
@@ -167,7 +160,7 @@ html {
     margin-top: 25px;
 
     .doneTodo {
-      animation: ShowDoneTodo .5s ease-out 1 forwards !important;
+      animation: ShowDoneTodo 0.5s ease-out 1 forwards !important;
       .content {
         text-decoration: line-through;
       }
@@ -179,10 +172,10 @@ html {
       text-align: center;
       user-select: none;
 
-      animation: ShowNoToDoText .2s ease-out 1 forwards;
+      animation: ShowNoToDoText 0.2s ease-out 1 forwards;
     }
     .TodoListItem {
-      animation: ShowNewTodo .5s ease-out 1 forwards;
+      animation: ShowNewTodo 0.5s ease-out 1 forwards;
 
       width: 100%;
       min-height: 150px;
@@ -210,32 +203,30 @@ html {
         .TodoListItemBtn {
           display: flex;
           justify-content: flex-end;
-  
+
           div {
             width: 40px;
             height: 40px;
             margin: 0 10px;
             border-radius: 50%;
-  
+
             display: flex;
             justify-content: center;
             align-items: center;
-  
+
             user-select: none;
             cursor: pointer;
           }
         }
       }
-      
+
       .TodoListItemLine {
         height: 5px;
         width: 100%;
         margin: 15px 0;
         border-radius: 15px;
-        transition: .1s ease-out;
+        transition: 0.1s ease-out;
       }
-
-      
 
       .content {
         width: 100%;
@@ -246,22 +237,22 @@ html {
 
         border-radius: 15px;
 
-        
-
-        div {outline: none;}
+        div {
+          outline: none;
+        }
 
         .editMode {
           position: absolute;
           right: 22px;
           bottom: 20px;
-  
-          transition: .2s;
-  
+
+          transition: 0.2s;
+
           cursor: pointer;
-          opacity: .15;
-  
+          opacity: 0.15;
+
           &:hover {
-            opacity: .6;
+            opacity: 0.6;
           }
         }
         .editModeActive {
@@ -275,20 +266,28 @@ html {
 }
 
 @keyframes ShowNewTodo {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 @keyframes ShowDoneTodo {
-  from { opacity: 0; }
-  to { opacity: $opDoneTodo; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: $opDoneTodo;
+  }
 }
 @keyframes ShowNoToDoText {
-  from { 
-    opacity: 0; 
+  from {
+    opacity: 0;
     transform: translateY(-10px);
   }
-  to { 
-    opacity: 1; 
+  to {
+    opacity: 1;
     transform: translateY(0px);
   }
 }
