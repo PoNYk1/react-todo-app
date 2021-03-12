@@ -1,4 +1,4 @@
-import React, { useContext, setState, useState } from "react";
+import React, { useContext, useState } from "react";
 
 import Context from "../../context";
 

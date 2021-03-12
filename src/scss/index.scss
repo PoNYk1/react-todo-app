@@ -237,6 +237,20 @@ html {
 
         border-radius: 15px;
 
+        textarea {
+          resize: none;
+          width: 100%;
+          border: none;
+          background: none;
+          padding: 0;
+          margin: 0;
+          color: inherit;
+          font-size: inherit;
+          font-style: inherit;
+          font-family: inherit;
+          outline: none;
+        }
+
         div {
           outline: none;
         }
@@ -254,7 +268,10 @@ html {
           &:hover {
             opacity: 0.6;
           }
+
+          user-select: none;
         }
+
         .editModeActive {
           opacity: 1;
           right: -60px;

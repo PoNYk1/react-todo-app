@@ -61,9 +61,13 @@ export default function TodoListItem({ id, important, done, label, date }) {
   });
 
   const [newLabelBuffer, setNewLabelBuffer] = useState(label);
+  const onInput = (e) => setNewLabelBuffer(e.target['value'])
+  const rows = newLabelBuffer.split('\n').length
 
   const updateLabel = () => {
-    editMode && updateTodoLabel(id, newLabelBuffer);
+    const newValue = newLabelBuffer.trim()
+    editMode && updateTodoLabel(id, newValue);
+    setNewLabelBuffer(newValue)
     setEditMode(!editMode);
   };
 
@@ -81,13 +85,10 @@ export default function TodoListItem({ id, important, done, label, date }) {
             <FontAwesomeIcon icon={faEdit} onClick={() => updateLabel()} />
           </div>
         )}
-        <div
-          contentEditable={editMode}
-          suppressContentEditableWarning="true"
-          onInput={(e) => setNewLabelBuffer(e.target.innerText)}
-        >
+
+        <textarea disabled={!editMode} rows={rows} onInput={onInput}>
           {label}
-        </div>
+        </textarea>
       </div>
     </div>
   );
