@@ -1,15 +1,14 @@
-$opDoneTodo: 0.5;
-
 //=====================================
 
 $darkModel-BG: #2c2d31;
-$darkModel-BGLinear: linear-gradient(145deg, #2c2d31 0%, #262729 110%);
-$darkModel-Green: #1dcba8;
+$darkModel-BGLinear: linear-gradient(145deg, #38393f27 0%, #21222583 110%);
+
+$darkModel-Blue: #77d7f5;
 $darkModel-White: #b8bac0;
 $darkModel-Red: rgb(236, 63, 63);
 
-$darkModel-LightShadow: rgba(75, 75, 75, 0.25);
-$darkModel-DarkShadow: rgba(37, 37, 37, 1);
+$darkModel-LightShadow: #38393f46;
+$darkModel-DarkShadow: #21222583;
 
 // Dark Model Colors
 //====================================
@@ -21,8 +20,8 @@ $lightModel-Orange: #f1b072;
 $lightModel-Grey: #8a94aa;
 $lightModel-Red: rgb(236, 63, 63);
 
-$lightModel-LightShadow: rgba(255, 255, 255, 0.5);
-$lightModel-DarkShadow: rgba(187, 187, 187, 0.26);
+$lightModel-LightShadow: #ffffff62;
+$lightModel-DarkShadow: #a3a3a328;
 
 // Light Model Colors
 //====================================

@@ -2,12 +2,13 @@ import React, { useState, useEffect, useContext } from "react";
 import Context from "../../context";
 
 export default function () {
-  const [btnArr, setBtnArr] = useState([
-    { label: "unmark", isActive: false },
-    { label: "important", isActive: false },
-    { label: "done", isActive: false },
-  ]);
   const { setFilterState, filterState, todoArr } = useContext(Context);
+  const { showUnmarked, showImportant, showDone } = filterState;
+  const [btnArr, setBtnArr] = useState([
+    { label: "unmark", isActive: showUnmarked },
+    { label: "important", isActive: showImportant },
+    { label: "done", isActive: showDone },
+  ]);
 
   const setFilter = (label) => {
     // Обновляет состояние кнопок и отправляет в глобальный стейт
@@ -29,14 +30,7 @@ export default function () {
   };
 
   const elements = btnArr.map((item, index) => {
-    // Отрисовка и получение первоначальных данных о фильтре
-    const { showUnmarked, showImportant, showDone } = filterState;
-
-    if (item.label == "unmark") item.isActive = showUnmarked;
-    else if (item.label == "important") item.isActive = showImportant;
-    else if (item.label == "done") item.isActive = showDone;
-
-    const classs = item.isActive ? "activeButton" : null;
+    const classs = item.isActive && "activeButton";
 
     return (
       <FilterBtn

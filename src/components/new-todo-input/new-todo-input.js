@@ -6,10 +6,10 @@ import Context from "../../context";
 
 export default function NewTodoInput() {
   const [inputValue, setInputValue] = useState("");
-  const [textareaHeight, setTextareaHeight] = useState(50);
   const { newTodo } = useContext(Context);
 
   const [btnClass, setBtnClass] = useState("");
+  const rows = inputValue.split("\n").length;
 
   const addNewTodo = (e) => {
     if (inputValue.trim()) {
@@ -17,18 +17,6 @@ export default function NewTodoInput() {
     }
     setInputValue("");
   };
-
-  const textareaUpdate = ({ target }) => {
-    setInputValue(target.value);
-    setTextareaHeight(target.scrollHeight);
-  };
-
-  useEffect(() => {
-    // Если в TextArea нет текста он становится нормального размера
-    if (!inputValue.trim()) {
-      setTextareaHeight(50);
-    }
-  }, [inputValue]);
 
   const textareaEnterSubmit = (e) => {
     // Enter для добавление ToDo, Shift + Enter для то что-бы перейти на новую строку
@@ -44,10 +32,10 @@ export default function NewTodoInput() {
       <textarea
         className="textInput"
         placeholder="Add new ToDo!"
-        onChange={(e) => textareaUpdate(e)}
+        onChange={({ target }) => setInputValue(target.value)}
         onKeyDown={textareaEnterSubmit}
         value={inputValue}
-        style={{ height: `${textareaHeight}px` }}
+        rows={rows}
       ></textarea>
       <div
         className={`submitButton ${btnClass}`}

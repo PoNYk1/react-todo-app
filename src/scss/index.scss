@@ -7,10 +7,11 @@ html {
 
   width: 100%;
   height: 100%;
-
+  scroll-behavior: none;
   &::-webkit-scrollbar {
     width: 0 !important;
   }
+  scrollbar-width: none;
 }
 * {
   box-sizing: border-box;
@@ -42,6 +43,10 @@ html {
 
   margin-top: 15px;
 
+  .activeButtonDel {
+    cursor: inherit !important;
+  }
+
   .ThemeSelector {
     position: absolute;
     right: 10px;
@@ -61,7 +66,7 @@ html {
     }
     .ThemeSelectorThemeArr {
       .Theme {
-        animation: ShowThemeArr 0.3s ease-out forwards;
+        transition: 0.2s;
         cursor: pointer;
         user-select: none;
         padding: 5px;
@@ -78,7 +83,6 @@ html {
 
     .textInput {
       width: 86%;
-      height: 50px;
       transition: 0.05s;
       overflow-y: hidden;
 
@@ -86,7 +90,6 @@ html {
       border-radius: 25px;
       padding: 0px 20px;
       padding-top: 14px;
-      padding-bottom: 10px;
 
       font-size: 16px;
       resize: none;
@@ -160,8 +163,8 @@ html {
     margin-top: 25px;
 
     .doneTodo {
-      animation: ShowDoneTodo 0.5s ease-out 1 forwards !important;
-      .content {
+      // opacity: 0.5;
+      textarea {
         text-decoration: line-through;
       }
     }
@@ -171,12 +174,11 @@ html {
       margin-top: 10px;
       text-align: center;
       user-select: none;
+      opacity: 0;
 
-      animation: ShowNoToDoText 0.2s ease-out 1 forwards;
+      animation: ShowNoToDoText 0.2s 0.5s ease-out 1 forwards;
     }
     .TodoListItem {
-      animation: ShowNewTodo 0.5s ease-out 1 forwards;
-
       width: 100%;
       min-height: 150px;
       border-radius: 15px;
@@ -188,6 +190,31 @@ html {
       align-items: center;
 
       position: relative;
+
+      .ToDoModalDel {
+        position: absolute;
+        top: 0;
+        right: -210px;
+
+        transition: 0.2s !important;
+
+        display: flex;
+        align-items: center;
+        border: 2px solid;
+        border-radius: 7px;
+        padding: 10px;
+
+        user-select: none;
+
+        div {
+          transition: 0.2s;
+          margin-left: 10px;
+          padding: 7px;
+          border: 2px solid;
+          border-radius: 7px;
+          cursor: pointer;
+        }
+      }
       .TodoListItemTop {
         width: 100%;
         display: flex;
@@ -233,12 +260,21 @@ html {
         margin-top: 10px;
         padding: 15px;
         padding-right: 25px;
+        padding-bottom: 0;
         white-space: pre-wrap;
 
         border-radius: 15px;
 
-        div {
+        textarea {
+          width: 100%;
+          height: 100%;
+          resize: none;
           outline: none;
+          background: none;
+          border: none;
+          color: inherit;
+
+          font-size: 16px;
         }
 
         .editMode {
@@ -252,12 +288,12 @@ html {
           opacity: 0.15;
 
           &:hover {
-            opacity: 0.6;
+            opacity: 1;
           }
         }
         .editModeActive {
           opacity: 1;
-          right: -60px;
+          right: -62px;
           font-size: 25px;
         }
       }
@@ -265,22 +301,44 @@ html {
   }
 }
 
-@keyframes ShowNewTodo {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+.ShowNewTodo-enter {
+  opacity: 0;
 }
-@keyframes ShowDoneTodo {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: $opDoneTodo;
-  }
+.ShowNewTodo-enter-done {
+  transition: 0.3s;
+  opacity: 1;
 }
+.ShowNewTodo-exit {
+  transition: 0.3s;
+  transition-delay: 0s !important;
+}
+.ShowNewTodo-exit-active {
+  opacity: 0;
+}
+
+.ShowModal-enter {
+  opacity: 0;
+}
+.ShowModal-enter-active {
+  opacity: 1;
+}
+.ShowModal-exit-active {
+  opacity: 0;
+}
+
+.ShowThemeBtn-enter {
+  opacity: 0;
+  transform: translateX(20px);
+}
+.ShowThemeBtn-enter-done {
+  opacity: 1;
+  transform: translateX(0px);
+}
+.ShowThemeBtn-exit-active {
+  opacity: 0;
+  transform: translateX(20px);
+}
+
 @keyframes ShowNoToDoText {
   from {
     opacity: 0;
@@ -289,15 +347,5 @@ html {
   to {
     opacity: 1;
     transform: translateY(0px);
-  }
-}
-@keyframes ShowThemeArr {
-  from {
-    opacity: 0;
-    transform: translateX(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0px);
   }
 }

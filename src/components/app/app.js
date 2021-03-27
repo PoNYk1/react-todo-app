@@ -7,7 +7,9 @@ import TodoList from "../todo-list";
 import Filter from "../filter";
 
 export default function App() {
-  const [globalClass, setGlobalClass] = useState("darkModel");
+  const [globalClass, setGlobalClass] = useState(
+    localStorage.getItem("theme") || "darkModel"
+  );
 
   const [counter, setCounter] = useState(
     JSON.parse(localStorage.getItem("counter")) || 0
@@ -20,12 +22,24 @@ export default function App() {
     showImportant: true,
     showDone: false,
   });
+  const [globalClickState, setGlobalClickState] = useState(null);
 
   useEffect(() => {
     // Обновление в localStorage
     localStorage.setItem("todos", JSON.stringify(todoArr));
     localStorage.setItem("counter", JSON.stringify(counter));
   }, [todoArr]);
+
+  useEffect(() => {
+    document.addEventListener("click", globalClick);
+    return () => {
+      document.removeEventListener("click", globalClick);
+    };
+  }, []);
+
+  const globalClick = (e) => {
+    setGlobalClickState(e.target);
+  };
 
   const updateTodoList = (id, action) => {
     // Удаление и пометка для выполненых и важных задач
@@ -102,11 +116,12 @@ export default function App() {
     updateTodoList, // TodoListItem
     updateTodoLabel, // TodoListItem
     setGlobalClass, // ThemeSelector
+    globalClickState, // ThemeSelector, TodoListItem
   };
 
   return (
     <Context.Provider value={globalContext}>
-      <div className="container">
+      <div className="container" onMouseDown={(e) => globalClick(e)}>
         <div className={`app ${globalClass} `}>
           <div className={`background`}></div>
           <ThemeSelector />

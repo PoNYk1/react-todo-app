@@ -1,19 +1,19 @@
 @import "./values";
 
 @mixin boxShadow($light, $shadow) {
-  box-shadow: 3px 3px 4px 0px $shadow, -3px -3px 4px 0px $light;
+  box-shadow: 5px 5px 10px 1px $shadow, -5px -5px 10px 1px $light;
 }
 @mixin boxShadowInset($light, $shadow) {
-  box-shadow: inset 3px 3px 4px 0px $shadow, inset -3px -3px 4px 0px $light !important;
+  box-shadow: inset 5px 5px 10px 1px $shadow, inset -5px -5px 10px 1px $light !important;
 }
 @mixin textLight($color) {
-  text-shadow: 0px 0px 1px $color;
+  text-shadow: 0px 0px 7px $color;
 }
 
 //=========================================================
 
 .darkModel {
-  font-family: "Roboto", sans-serif;
+  font-family: "Blinker", sans-serif;
   color: $darkModel-White;
 
   @include boxShadow($darkModel-LightShadow, $darkModel-DarkShadow);
@@ -24,8 +24,13 @@
 
   .activeButton {
     @include boxShadowInset($darkModel-LightShadow, $darkModel-DarkShadow);
-    @include textLight($darkModel-Green);
-    color: $darkModel-Green;
+    @include textLight($darkModel-Blue);
+
+    color: $darkModel-Blue;
+  }
+  .activeButtonDel {
+    @include boxShadowInset($darkModel-LightShadow, $darkModel-DarkShadow);
+    color: $darkModel-Red;
   }
 
   .ThemeSelector {
@@ -33,12 +38,12 @@
       background: $darkModel-White;
 
       &:hover {
-        background: $darkModel-Green;
+        background: $darkModel-Blue;
       }
     }
     .Theme {
       &:hover {
-        color: $darkModel-Green;
+        color: $darkModel-Blue;
       }
     }
   }
@@ -47,7 +52,7 @@
     .textInput {
       background: $darkModel-BGLinear;
 
-      color: $darkModel-Green;
+      color: $darkModel-Blue;
 
       @include boxShadowInset($darkModel-LightShadow, $darkModel-DarkShadow);
     }
@@ -57,7 +62,7 @@
       @include boxShadow($darkModel-LightShadow, $darkModel-DarkShadow);
 
       &:hover > svg {
-        color: $darkModel-Green;
+        color: $darkModel-Blue;
       }
     }
   }
@@ -69,8 +74,8 @@
 
       span {
         font-weight: 600;
-        color: $darkModel-Green;
-        @include textLight($darkModel-Green);
+        color: $darkModel-Blue;
+        @include textLight($darkModel-Blue);
       }
     }
     .FilterBtn {
@@ -86,7 +91,14 @@
   .TodoList {
     .TodoListItem {
       @include boxShadow($darkModel-LightShadow, $darkModel-DarkShadow);
-
+      .ToDoModalDel {
+        div {
+          &:hover {
+            color: $darkModel-Blue;
+            border-color: $darkModel-Blue;
+          }
+        }
+      }
       .TodoListItemBtn {
         div {
           @include boxShadow($darkModel-LightShadow, $darkModel-DarkShadow);
@@ -104,8 +116,8 @@
         @include boxShadow($darkModel-LightShadow, $darkModel-DarkShadow);
       }
       .importantLine {
-        background: $darkModel-Green;
-        box-shadow: 0 0 6px $darkModel-Green;
+        background: $darkModel-Blue;
+        box-shadow: 0 0 10px $darkModel-Blue;
       }
 
       .content {
@@ -116,7 +128,7 @@
 }
 
 .lightModel {
-  font-family: "Roboto", sans-serif;
+  font-family: "Blinker", sans-serif;
   color: $lightModel-Grey;
 
   @include boxShadow($lightModel-LightShadow, $lightModel-DarkShadow);
@@ -129,6 +141,11 @@
     @include boxShadowInset($lightModel-LightShadow, $lightModel-DarkShadow);
     @include textLight($lightModel-Orange);
     color: $lightModel-Orange;
+  }
+
+  .activeButtonDel {
+    @include boxShadowInset($lightModel-LightShadow, $lightModel-DarkShadow);
+    color: $lightModel-Red;
   }
 
   .ThemeSelector {
@@ -188,9 +205,16 @@
 
   .TodoList {
     .TodoListItem {
-      animation: ShowNewTodo 0.5s ease-out 1 forwards;
-
       @include boxShadow($lightModel-LightShadow, $lightModel-DarkShadow);
+
+      .ToDoModalDel {
+        div {
+          &:hover {
+            color: $lightModel-Orange;
+            border-color: $lightModel-Orange;
+          }
+        }
+      }
 
       .TodoListItemBtn {
         div {
@@ -210,7 +234,7 @@
       }
       .importantLine {
         background: $lightModel-Orange;
-        box-shadow: 0 0 6px $lightModel-Orange;
+        box-shadow: 0 0 5px $lightModel-Orange;
       }
       .content {
         @include boxShadowInset(
