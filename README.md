@@ -1,7 +1,6 @@
 # Todo App
 
 ![React](https://sun9-28.userapi.com/impg/Skfch48068hD9vAUfXaoEnITa_aLghEw78gk0A/voaHWUqs998.jpg?size=1919x1006&quality=96&sign=a227bd079129d84f72d9ada5d749873a&type=album)
-![React](https://sun9-27.userapi.com/impg/9w8wHqpGoFTQ9WdvZvc2sKlNya6Itgx5r1LtyQ/3Qho2UT2Nes.jpg?size=1877x1010&quality=96&sign=5b3432bd7fcb10ec2e2e084781c836af&type=album)
 
 ### Описание: 
 
