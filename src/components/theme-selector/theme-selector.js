@@ -14,8 +14,8 @@ export default function ThemeSelector() {
   }, [globalClickState]);
 
   const themeArr = [
-    "darkModel",
-    "lightModel",
+    "dark-model",
+    "light-model",
     "test",
     "test",
     "test",
@@ -25,7 +25,7 @@ export default function ThemeSelector() {
 
     return (
       <CSSTransition
-        classNames="ShowThemeBtn"
+        classNames="show-theme-btn"
         timeout={200 + delay}
         key={index}
       >
@@ -35,7 +35,7 @@ export default function ThemeSelector() {
             setMenuState(false);
             localStorage.setItem("theme", theme);
           }}
-          className="Theme"
+          className="theme"
         >
           {theme}
         </div>
@@ -44,12 +44,12 @@ export default function ThemeSelector() {
   });
 
   return (
-    <div className="ThemeSelector">
-      <div className="ThemeSelectorThemeArr">
+    <div className="theme-selector">
+      <div className="theme-selector-theme-arr">
         <TransitionGroup>{menuState && themeArr}</TransitionGroup>
       </div>
       <div
-        className="ThemeSelectorBtn"
+        className="theme-selector-btn"
         onClick={(e) => {
           setMenuState(!menuState);
         }}

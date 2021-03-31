@@ -43,18 +43,17 @@ html {
 
   margin-top: 15px;
 
-  .activeButtonDel {
+  .active-button-del {
     cursor: inherit !important;
   }
-
-  .ThemeSelector {
+  .theme-selector {
     position: absolute;
     right: 10px;
     top: 10px;
 
     display: flex;
 
-    .ThemeSelectorBtn {
+    .theme-selector-btn {
       width: 20px;
       height: 20px;
       border-radius: 5px;
@@ -64,8 +63,8 @@ html {
       cursor: pointer;
       transition: 0.3s;
     }
-    .ThemeSelectorThemeArr {
-      .Theme {
+    .theme-selector-theme-arr {
+      .theme {
         transition: 0.2s;
         cursor: pointer;
         user-select: none;
@@ -74,14 +73,14 @@ html {
       }
     }
   }
-  .NewTodoInput {
+  .new-todo-input {
     width: 100%;
     margin-top: 15px;
 
     display: flex;
     justify-content: space-between;
 
-    .textInput {
+    .text-input {
       width: 86%;
       transition: 0.05s;
       overflow-y: hidden;
@@ -98,7 +97,7 @@ html {
         outline: none;
       }
     }
-    .submitButton {
+    .submit-button {
       height: 50px;
       width: 50px;
 
@@ -123,14 +122,14 @@ html {
       }
     }
   }
-  .Filter {
+  .filter {
     width: 100%;
     margin-top: 25px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    .FilterInfo {
+    .filter-info {
       display: flex;
       justify-content: space-between;
       user-select: none;
@@ -142,7 +141,7 @@ html {
       width: 180px;
     }
 
-    .FilterBtn {
+    .filter-btn {
       display: flex;
       div {
         border-radius: 150px;
@@ -156,29 +155,29 @@ html {
       }
     }
   }
-  .TodoList {
+  .todo-list {
     width: 100%;
     min-height: 50px;
 
     margin-top: 25px;
 
-    .doneTodo {
+    .done-todo {
       // opacity: 0.5;
       textarea {
         text-decoration: line-through;
       }
     }
 
-    .NoTodo {
+    .no-todo {
       width: 100%;
       margin-top: 10px;
       text-align: center;
       user-select: none;
       opacity: 0;
 
-      animation: ShowNoToDoText 0.2s 0.5s ease-out 1 forwards;
+      animation: show-no-todo-text 0.2s 0.5s ease-out 1 forwards;
     }
-    .TodoListItem {
+    .todo-list-item {
       width: 100%;
       min-height: 150px;
       border-radius: 15px;
@@ -191,7 +190,7 @@ html {
 
       position: relative;
 
-      .ToDoModalDel {
+      .todo-modal-del {
         position: absolute;
         top: 0;
         right: -210px;
@@ -215,19 +214,19 @@ html {
           cursor: pointer;
         }
       }
-      .TodoListItemTop {
+      .todo-list-item-top {
         width: 100%;
         display: flex;
         justify-content: space-between;
         align-items: center;
 
-        .TodoListItemDate {
+        .todo-list-item-date {
           width: 50%;
           opacity: 0.4;
           margin-left: 10px;
         }
 
-        .TodoListItemBtn {
+        .todo-list-item-btn {
           display: flex;
           justify-content: flex-end;
 
@@ -247,7 +246,7 @@ html {
         }
       }
 
-      .TodoListItemLine {
+      .todo-list-item-line {
         height: 5px;
         width: 100%;
         margin: 15px 0;
@@ -277,7 +276,7 @@ html {
           font-size: 16px;
         }
 
-        .editMode {
+        .edit-mode {
           position: absolute;
           right: 22px;
           bottom: 20px;
@@ -291,7 +290,7 @@ html {
             opacity: 1;
           }
         }
-        .editModeActive {
+        .edit-mode-active {
           opacity: 1;
           right: -62px;
           font-size: 25px;
@@ -301,45 +300,45 @@ html {
   }
 }
 
-.ShowNewTodo-enter {
+.show-new-todo-enter {
   opacity: 0;
 }
-.ShowNewTodo-enter-done {
+.show-new-todo-enter-done {
   transition: 0.3s;
   opacity: 1;
 }
-.ShowNewTodo-exit {
+.show-new-todo-exit {
   transition: 0.3s;
   transition-delay: 0s !important;
 }
-.ShowNewTodo-exit-active {
+.show-new-todo-exit-active {
   opacity: 0;
 }
 
-.ShowModal-enter {
+.show-modal-enter {
   opacity: 0;
 }
-.ShowModal-enter-active {
+.show-modal-enter-active {
   opacity: 1;
 }
-.ShowModal-exit-active {
+.show-modal-exit-active {
   opacity: 0;
 }
 
-.ShowThemeBtn-enter {
+.show-theme-btn-enter {
   opacity: 0;
   transform: translateX(20px);
 }
-.ShowThemeBtn-enter-done {
+.show-theme-btn-enter-done {
   opacity: 1;
   transform: translateX(0px);
 }
-.ShowThemeBtn-exit-active {
+.show-theme-btn-exit-active {
   opacity: 0;
   transform: translateX(20px);
 }
 
-@keyframes ShowNoToDoText {
+@keyframes show-no-todo-text {
   from {
     opacity: 0;
     transform: translateY(-10px);

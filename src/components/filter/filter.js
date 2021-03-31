@@ -30,7 +30,7 @@ export default function () {
   };
 
   const elements = btnArr.map((item, index) => {
-    const classs = item.isActive && "activeButton";
+    const classs = item.isActive && "active-button";
 
     return (
       <FilterBtn
@@ -66,9 +66,9 @@ export default function () {
   };
 
   return (
-    <div className="Filter">
-      <div className="FilterInfo">{todoInfo()}</div>
-      <div className="FilterBtn">{elements}</div>
+    <div className="filter">
+      <div className="filter-info">{todoInfo()}</div>
+      <div className="filter-btn">{elements}</div>
     </div>
   );
 }

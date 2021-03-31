@@ -82,8 +82,8 @@ export default function TodoListItem({
   const btn = btnArr.map((el, index) => {
     const classs =
       el.action == "delete" && el.isActive
-        ? "activeButtonDel"
-        : el.isActive && "activeButton";
+        ? "active-button-del"
+        : el.isActive && "active-button";
 
     if (done && el.action == "important") {
       el.isActive = false;
@@ -112,12 +112,12 @@ export default function TodoListItem({
 
   return (
     <div
-      className={`TodoListItem ${done ? "doneTodo" : ""}`}
+      className={`todo-list-item ${done ? "done-todo" : ""}`}
       key={id}
       style={{ transitionDelay: `${delay}ms` }}
     >
       <CSSTransition
-        classNames="ShowModal"
+        classNames="show-modal"
         timeout={200}
         in={modalDelActive}
         unmountOnExit
@@ -130,17 +130,17 @@ export default function TodoListItem({
         />
       </CSSTransition>
 
-      <div className="TodoListItemTop">
-        <div className="TodoListItemDate">{date}</div>
-        <div className="TodoListItemBtn">{btn}</div>
+      <div className="todo-list-item-top">
+        <div className="todo-list-item-date">{date}</div>
+        <div className="todo-list-item-btn">{btn}</div>
       </div>
 
       <div
-        className={`TodoListItemLine ${important ? "importantLine" : ""}`}
+        className={`todo-list-item-line ${important ? "important-line" : ""}`}
       ></div>
       <div className="content">
         {!done && (
-          <div className={`editMode ${editMode ? "editModeActive" : ""}`}>
+          <div className={`edit-mode ${editMode ? "edit-mode-active" : ""}`}>
             <FontAwesomeIcon icon={faEdit} onClick={() => updateLabel()} />
           </div>
         )}
@@ -158,7 +158,7 @@ export default function TodoListItem({
 }
 
 function Buttons({ label, classs, todoAction, action }) {
-  const classss = action == "delete" ? `delBtn ${classs}` : classs;
+  const classss = action == "delete" ? `del-btn ${classs}` : classs;
   return (
     <div className={classss} onClick={() => todoAction(action)}>
       {label}
@@ -168,7 +168,7 @@ function Buttons({ label, classs, todoAction, action }) {
 
 function ToDoModalDel({ closeModal, delToDo }) {
   return (
-    <div className="ToDoModalDel">
+    <div className="todo-modal-del">
       Are you sure?
       <div onClick={() => delToDo("delete")}>Yes</div>
     </div>

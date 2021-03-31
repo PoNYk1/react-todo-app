@@ -12,7 +12,7 @@
 
 //=========================================================
 
-.darkModel {
+.dark-model {
   font-family: "Blinker", sans-serif;
   color: $darkModel-White;
 
@@ -22,41 +22,41 @@
     background: $darkModel-BG;
   }
 
-  .activeButton {
+  .active-button {
     @include boxShadowInset($darkModel-LightShadow, $darkModel-DarkShadow);
     @include textLight($darkModel-Blue);
 
     color: $darkModel-Blue;
   }
-  .activeButtonDel {
+  .active-button-del {
     @include boxShadowInset($darkModel-LightShadow, $darkModel-DarkShadow);
     color: $darkModel-Red;
   }
 
-  .ThemeSelector {
-    .ThemeSelectorBtn {
+  .theme-selector {
+    .theme-selector-btn {
       background: $darkModel-White;
 
       &:hover {
         background: $darkModel-Blue;
       }
     }
-    .Theme {
+    .theme {
       &:hover {
         color: $darkModel-Blue;
       }
     }
   }
 
-  .NewTodoInput {
-    .textInput {
+  .new-todo-input {
+    .text-input {
       background: $darkModel-BGLinear;
 
       color: $darkModel-Blue;
 
       @include boxShadowInset($darkModel-LightShadow, $darkModel-DarkShadow);
     }
-    .submitButton {
+    .submit-button {
       background: $darkModel-BG;
 
       @include boxShadow($darkModel-LightShadow, $darkModel-DarkShadow);
@@ -67,8 +67,8 @@
     }
   }
 
-  .Filter {
-    .FilterInfo {
+  .filter {
+    .filter-info {
       @include boxShadowInset($darkModel-LightShadow, $darkModel-DarkShadow);
       background: $darkModel-BGLinear;
 
@@ -78,7 +78,7 @@
         @include textLight($darkModel-Blue);
       }
     }
-    .FilterBtn {
+    .filter-btn {
       div {
         transition: 0.5s;
         background: $darkModel-BG;
@@ -88,10 +88,10 @@
     }
   }
 
-  .TodoList {
-    .TodoListItem {
+  .todo-list {
+    .todo-list-item {
       @include boxShadow($darkModel-LightShadow, $darkModel-DarkShadow);
-      .ToDoModalDel {
+      .todo-modal-del {
         div {
           &:hover {
             color: $darkModel-Blue;
@@ -99,12 +99,12 @@
           }
         }
       }
-      .TodoListItemBtn {
+      .todo-list-item-btn {
         div {
           @include boxShadow($darkModel-LightShadow, $darkModel-DarkShadow);
           transition: 0.3s;
         }
-        .delBtn {
+        .del-btn {
           transition: 0.2s;
           &:hover {
             color: $darkModel-Red;
@@ -112,10 +112,10 @@
           }
         }
       }
-      .TodoListItemLine {
+      .todo-list-item-line {
         @include boxShadow($darkModel-LightShadow, $darkModel-DarkShadow);
       }
-      .importantLine {
+      .important-line {
         background: $darkModel-Blue;
         box-shadow: 0 0 10px $darkModel-Blue;
       }
@@ -127,7 +127,7 @@
   }
 }
 
-.lightModel {
+.light-model {
   font-family: "Blinker", sans-serif;
   color: $lightModel-Grey;
 
@@ -137,41 +137,41 @@
     background: $lightModel-BG;
   }
 
-  .activeButton {
+  .active-button {
     @include boxShadowInset($lightModel-LightShadow, $lightModel-DarkShadow);
     @include textLight($lightModel-Orange);
     color: $lightModel-Orange;
   }
 
-  .activeButtonDel {
+  .active-button-del {
     @include boxShadowInset($lightModel-LightShadow, $lightModel-DarkShadow);
     color: $lightModel-Red;
   }
 
-  .ThemeSelector {
-    .ThemeSelectorBtn {
+  .theme-selector {
+    .theme-selector-btn {
       background: $lightModel-Grey;
 
       &:hover {
         background: $lightModel-Orange;
       }
     }
-    .Theme {
+    .theme {
       &:hover {
         color: $lightModel-Orange;
       }
     }
   }
 
-  .NewTodoInput {
-    .textInput {
+  .new-todo-input {
+    .text-input {
       background: $lightModel-BGLinear;
 
       color: $lightModel-Orange;
 
       @include boxShadowInset($lightModel-LightShadow, $lightModel-DarkShadow);
     }
-    .submitButton {
+    .submit-button {
       background: $lightModel-BG;
 
       @include boxShadow($lightModel-LightShadow, $lightModel-DarkShadow);
@@ -182,8 +182,8 @@
     }
   }
 
-  .Filter {
-    .FilterInfo {
+  .filter {
+    .filter-info {
       @include boxShadowInset($lightModel-LightShadow, $lightModel-DarkShadow);
       background: $lightModel-BGLinear;
 
@@ -193,7 +193,7 @@
         @include textLight($lightModel-Orange);
       }
     }
-    .FilterBtn {
+    .filter-btn {
       div {
         transition: 0.5s;
         background: $lightModel-BG;
@@ -203,11 +203,11 @@
     }
   }
 
-  .TodoList {
-    .TodoListItem {
+  .todo-list {
+    .todo-list-item {
       @include boxShadow($lightModel-LightShadow, $lightModel-DarkShadow);
 
-      .ToDoModalDel {
+      .todo-modal-del {
         div {
           &:hover {
             color: $lightModel-Orange;
@@ -216,12 +216,12 @@
         }
       }
 
-      .TodoListItemBtn {
+      .todo-list-item-btn {
         div {
           @include boxShadow($lightModel-LightShadow, $lightModel-DarkShadow);
           transition: 0.3s;
         }
-        .delBtn {
+        .del-btn {
           transition: 0.2s;
           &:hover {
             color: $lightModel-Red;
@@ -229,10 +229,10 @@
           }
         }
       }
-      .TodoListItemLine {
+      .todo-list-item-line {
         @include boxShadow($lightModel-LightShadow, $lightModel-DarkShadow);
       }
-      .importantLine {
+      .important-line {
         background: $lightModel-Orange;
         box-shadow: 0 0 5px $lightModel-Orange;
       }

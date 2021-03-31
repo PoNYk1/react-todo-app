@@ -28,9 +28,9 @@ export default function NewTodoInput() {
   };
 
   return (
-    <form onSubmit={addNewTodo} className="NewTodoInput">
+    <form onSubmit={addNewTodo} className="new-todo-input">
       <textarea
-        className="textInput"
+        className="text-input"
         placeholder="Add new ToDo!"
         onChange={({ target }) => setInputValue(target.value)}
         onKeyDown={textareaEnterSubmit}
@@ -38,7 +38,7 @@ export default function NewTodoInput() {
         rows={rows}
       ></textarea>
       <div
-        className={`submitButton ${btnClass}`}
+        className={`submit-button ${btnClass}`}
         onMouseDown={() => setBtnClass("activeButton")}
         onMouseUp={() => setBtnClass("")}
         onClick={addNewTodo}

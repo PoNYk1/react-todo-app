@@ -8,7 +8,7 @@ import Filter from "../filter";
 
 export default function App() {
   const [globalClass, setGlobalClass] = useState(
-    localStorage.getItem("theme") || "darkModel"
+    localStorage.getItem("theme") || "dark-model"
   );
 
   const [counter, setCounter] = useState(

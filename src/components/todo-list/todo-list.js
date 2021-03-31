@@ -13,7 +13,7 @@ export default function TodoList() {
     const { id, date, label, done, important } = el;
     delay += 70;
     return (
-      <CSSTransition classNames="ShowNewTodo" timeout={300} key={id}>
+      <CSSTransition classNames="show-new-todo" timeout={300} key={id}>
         <TodoListItem
           delay={delay}
           id={id}
@@ -27,10 +27,10 @@ export default function TodoList() {
     );
   });
 
-  const NoTodo = <div className="NoTodo"> No Todo :) </div>;
+  const NoTodo = <div className="no-todo"> No Todo :) </div>;
 
   return (
-    <div className="TodoList">
+    <div className="todo-list">
       <TransitionGroup>{todoListItem}</TransitionGroup>
       {todoListItem.length == 0 && NoTodo}
     </div>
